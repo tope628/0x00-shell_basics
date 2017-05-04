@@ -1,5 +1,5 @@
 0 - prints absolute path name
-1 - lists files cin current directory
+1 - lists files in current directory
 2 -  changes working directory to users home directory
 3 - Display current directory contents in a long format
 4 - Display current directory contents in long format,including hidden files  (starting with .)
@@ -12,4 +12,5 @@
 11 - lists all files (even ones with names beginning with a period character, which are normally hidden) in the current directory and the parent of the working directory and the /boot directory (in this order), in long format
 12 - prints the type of the file
 13 - create a symbolic link
-
+14 - copy all html files
+15 - 
