@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# This script is displaying "Holberton School" 10 times 
+ COUNTER=1
+ while (( COUNTER <= 20 ))
+ do
+	 if ((COUNTER == 4));then
+	 echo $COUNTER
+		 echo "bad luck from China"
+	 elif ((COUNTER == 9));then
+	 echo $COUNTER
+		 echo "bad luck from Japan"
+	elif ((COUNTER == 17));then
+	 echo $COUNTER
+		 echo "bad luck from Italy"
+	else
+	 echo $COUNTER
+	 fi
+	 let COUNTER+=1 
+done
