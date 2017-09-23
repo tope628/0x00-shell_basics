@@ -3,17 +3,17 @@
  COUNTER=1
  while (( COUNTER <= 20 ))
  do
-	 if ((COUNTER == 4));then
 	 echo $COUNTER
-		 echo "bad luck from China"
-	 elif ((COUNTER == 9));then
-	 echo $COUNTER
-		 echo "bad luck from Japan"
-	elif ((COUNTER == 17));then
-	 echo $COUNTER
-		 echo "bad luck from Italy"
-	else
-	 echo $COUNTER
-	 fi
+	 case $COUNTER in
+		 4)
+			 echo "bad luck from China"
+			 ;;
+		 9)
+			 echo "bad luck from Japan"
+			 ;;
+		17)
+			echo "bad luck from Italy"
+			;;
+	esac
 	 let COUNTER+=1 
 done
