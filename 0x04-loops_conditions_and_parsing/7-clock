@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 # This script is displaying "Holberton School" 10 times 
  HOUR=0
-while (($HOUR <= 12 ))
+while ((HOUR <= 12 ))
 do
 echo "Hour : $HOUR"
  MIN=1
 
-	while (( $MIN < 60  ))
+	while (( MIN < 60  ))
 	do
 	echo $MIN
 	 let MIN+=1
