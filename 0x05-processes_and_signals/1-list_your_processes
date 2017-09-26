@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# lists currently running processes
+
+ps -faux

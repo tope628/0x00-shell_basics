@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# displays bash pid
+
+ps -faux | grep bash
