@@ -1,24 +1,25 @@
 #!/usr/bin/env bash
 # infinite process with start,stop,restart cmds
 
-function manage_my_process{
-	while true; do
-		echo "I am alive!" > /tmp/my_process
-		sleep 2
-	done
-}
-
-for arg
-do
-	case arg in
-		start)
-			echo $$ > /var/run/my_process.pid
-			echo "manage_my_process started"
-			;;
-		stop)
-			rm /var/run/my_process.pid
-			echo "manage_my_process stopped"
-			;;
-		restart)
-			rm /var/run/my_process.pid
-			echo "manage_my_process restarted"
+case "$1" in
+	start)
+		./manage_my_process &
+		echo "$!" > /var/run/my_process.pid
+		echo "manage_my_process started"
+		;;
+	stop)
+		kill "$(cat /var/run/my_process.pid)"	
+		rm /var/run/my_process.pid
+		echo "manage_my_process stopped"
+		;;
+	restart)
+		kill "$(cat /var/run/my_process.pid)"	
+		rm /var/run/my_process.pid
+		./manage_my_process &
+		echo "$!" > /var/run/my_process.pid
+		echo "manage_my_process restarted"
+		;;
+	*)
+		echo "Usage: manage_my_process {start|stop|restart}"
+		;;
+esac
