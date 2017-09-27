@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <sys/types.h>
 #include <stdio.h>
+#include <unistd.h>
+
 /**
  * infinite_while - infinite loop
  * Return: voided
@@ -15,6 +17,7 @@ int infinite_while(void)
 	}
 	return (0);
 }
+
 /**
  * main - creates 5 zombie processes
  * Return: voided
@@ -40,5 +43,3 @@ int main(void)
 	infinite_while();
 	return (0);
 }
-
-
