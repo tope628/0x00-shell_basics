@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#RSA key pair with password and 4096 bits
+
+ssh-keygen -b 4096 -f holberton -N password -t rsa
