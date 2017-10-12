@@ -7,7 +7,7 @@ sudo service nginx start
 #redirect='location /redirect_me {
 #  rewrite $uri 142.44.167.29/redirect_me permanent;
 #\}'
-sed -i "36i location /redirect_me {\
+sed -i "37i location /redirect_me {\
 rewrite \$uri 142.44.167.29/redirect_me permanent;\
 }"  /etc/nginx/sites-available/holb
 sudo nginx -t && nginx -s reload
