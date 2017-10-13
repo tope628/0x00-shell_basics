@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 #install nginx
 
-sudo apt-get update
-sudo apt-get -y install nginx
-sudo service nginx start
+apt-get update
+apt-get -y install nginx
+service nginx start
 #redirect='location /redirect_me {
 #  rewrite $uri 142.44.167.29/redirect_me permanent;
 #\}'
 sed -i "37i location /redirect_me {\
-rewrite \$uri 142.44.167.29/redirect_me permanent;\
-}"  /etc/nginx/sites-available/holb
-sudo nginx -t && nginx -s reload
+return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\
+}"  /etc/nginx/sites-available/default
+nginx -t && service nginx restart
