@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#install nginx with header
+
+echo deb http://archive.ubuntu.com/ubuntu trusty-backports main universe | \
+      tee /etc/apt/sources.list.d/backports.list
+sudo apt-get update
+sudo apt-get install haproxy -t trusty-backports
+echo ENABLED=1 | sudo tee /etc/default/haproxy
+cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.orig
+sudo sed -i " i\listen appname\n\tbind 0.0.0.0:80\n\tmode http\n\tstats enable\n\tstats uri /haproxy?stats\n\tbalance roundrobin\n\toption httpclose\n\toption forwardfor\n\tserver 206-web-01 142.44.167.29:80 check\n\tserver 206-web-02 144.217.246.244:80 check\n" /etc/haproxy/haproxy.cfg
+sudo service haproxy start
