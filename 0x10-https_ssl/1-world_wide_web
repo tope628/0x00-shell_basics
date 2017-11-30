@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# shellcheck disable=SC2086
+# Bash script that will  display info about subdomains
+
+domains () {
+    subd="$1"
+    dom="$2"
+    res=($(dig $subd.$dom | awk '/ANSWER SECTION:/{getline; print}'))
+    echo "The subdomain $subd is a ${res[3]} record and points to ${res[4]}"
+}
+dom="$1"
+subd="$2"
+if [ ! "$subd" ];
+then
+    domains "www" "$dom"
+    domains "lb-01" "$dom"
+    domains "web-01" "$dom"
+    domains "web-02" "$dom"
+else
+    domains "$subd" "$dom"
+fi
+
