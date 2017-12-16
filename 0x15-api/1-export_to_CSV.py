@@ -6,16 +6,16 @@ import requests
 from sys import argv
 
 if __name__ == "__main__":
-    link = 'https://jsonplaceholder.typicode.com'
+    link = 'https://jsonplaceholder.typicode.com/'
     userId = argv[1]
-    user_link = requests.get(link + "users/{}".format(userId)).json()
-    todo_link = requests.get(link + "todos?userId={}".format(userId)).json()
-    for user in user_link:
-        username = user["username"]
-    for todo in todo_link:
-        filename = "{}.csv".format(userId)
-        complete = todo.get("completed")
-        title = todo.get("title")
-        with open(filename, 'w') as f:
+    user_link = requests.get(link + "users/{}".format(
+        userId), verify=False).json()
+    todo_link = requests.get(link + "todos?userId={}".format(
+        userId), verify=False).json()
+    filename = "{}.csv".format(userId)
+    with open(filename, 'w') as f:
+        for todo in todo_link:
+            complete = todo.get("completed")
+            title = todo.get("title")
             f.write('"{}","{}","{}","{}"\n'.format
-                         (userId, username, complete, title))
+                   (userId, user_link.get("username"), complete, title))
