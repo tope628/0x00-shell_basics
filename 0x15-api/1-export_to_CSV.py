@@ -18,4 +18,4 @@ if __name__ == "__main__":
             complete = todo.get("completed")
             title = todo.get("title")
             f.write('"{}","{}","{}","{}"\n'.format
-                   (userId, user_link.get("username"), complete, title))
+                    (userId, user_link.get("username"), complete, title))
