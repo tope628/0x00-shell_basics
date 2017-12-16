@@ -2,9 +2,8 @@
 """
 fetches employee info from API in csv
 """
-import requests
-from sys import argv
 import json
+import requests
 
 if __name__ == "__main__":
     link = 'https://jsonplaceholder.typicode.com/'
