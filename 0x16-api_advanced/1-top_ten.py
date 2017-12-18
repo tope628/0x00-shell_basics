@@ -8,7 +8,7 @@ def top_ten(subreddit):
     red = requests.get(link, headers={'User-Agent': 'tope628'}).json()
     try:
         subs = red.get('data').get('children')
-        for x in range(0, 9):
+        for x in range(0, 10):
             print(subs[x]['data'].get('title'))
     except:
         print(None)
