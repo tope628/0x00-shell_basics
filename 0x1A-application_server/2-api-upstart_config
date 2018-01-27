@@ -1,0 +1,18 @@
+# When to start the service
+start on runlevel [2345]
+# When to stop the service
+stop on runlevel [016]
+# Automatically restart process if crashed
+respawn
+# Start the process
+setgid www-data
+
+env PATH=/home/ubuntu/AirBnB_clone_v4/bin/bin/
+env HBNB_MYSQL_USER=hbnb_dev
+env HBNB_MYSQL_PWD=hbnb_dev_pwd
+env HBNB_MYSQL_HOST=localhost
+env HBNB_MYSQL_DB=hbnb_dev_db
+env HBNB_TYPE_STORAGE=db
+
+chdir /home/ubuntu/AirBnB_clone_v4
+exec gunicorn --workers 3  --bind 127.0.0.1:8001 api.v1.app:app

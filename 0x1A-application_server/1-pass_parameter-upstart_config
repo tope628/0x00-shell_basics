@@ -1,0 +1,14 @@
+# When to start the service
+start on runlevel [2345]
+
+# When to stop the service
+stop on runlevel [016]
+
+# Automatically restart process if crashed
+respawn
+
+# Start the process
+setgid www-data
+chdir /home/ubuntu/AirBnB_clone_v2/web_flask
+exec gunicorn --workers 3 6-number_odd_or_even:app --bind 127.0.0.1:8001
+
